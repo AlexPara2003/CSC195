@@ -5,40 +5,103 @@
 #include <string>
 using namespace std;
 
-namespace alex{
-
-    int i = 10;
-
-}
+//namespace alex{
+//
+//    int i = 10;
+//}
 
 int main(){
 
-    int i = -34;
-    float f = 23;
+    const float TAX = 0.07;
+
+    string name;
+    char initial;
+    unsigned int age;
+    bool isAdult;
+    unsigned int zipcode;
+    float wage;
+    float daysWorked;
+    int hoursWorkedPerDay[7];
+    int totalHours = 0;
+    float totalWage;
+    float afterTax;
+
+    cout << "Enter first name: ";
+    cin >> name;
+
+    cout << "Enter your last initial: ";
+    cin >> initial;
+
+    cout << "Enter your age: ";
+    cin >> age;
+
+    if (age >= 18){
+        isAdult = true;
+    } else {
+        isAdult = false;
+    }
+
+    if (isAdult == true){
+        cout << "You're an adult. \n";
+    } else {
+        cout << "You're not an adult. \n";
+    }
+
+    cout << "Enter zipcode: ";
+    cin >> zipcode;
+
+    cout << "Enter your wage: ";
+    cin >> wage;
+
+    cout << "How many days do you work a week? ";
+    cin >> daysWorked;
+
+    for (int i = 0; i < daysWorked; i++){
+        cout << "How many hours do you work on day " << i + 1 <<": ";
+        cin >> hoursWorkedPerDay[i];
+    }
+
+    for (int i = 0; i < daysWorked; i++){
+        totalHours += hoursWorkedPerDay[i];
+    }
+
+    cout << "Total hours worked: " << totalHours << "\n";
+
+    totalWage = totalHours * wage;
+
+    cout << "You made $" << totalWage << " a week.\n";
+    cout << "Tax: $" << totalWage * TAX << "\n";
+
+    afterTax = totalWage - (totalWage * TAX);
+
+    cout << "Leftover after tax: $" << afterTax;
+
+    //int i = -34;
+    //float f = 23;
     //Can use numeric values instead of just true/false.
     //0 is false all other values are treated as true.
-    bool b = 5;
-    string name;
+    //bool b = 5;
+    //string name;
 
-    const float TAX = 0.085;
-    char initial;
+    //const float TAX = 0.085;
+    //char initial;
 
     //All is needed for array.
-    int ages[4];
-    ages[0] = 24;
-    ages[1] = 10;
+    //int ages[4];
+    //ages[0] = 24;
+    //ages[1] = 10;
     //Can go beyond the memory which can crash your application. 
     //Will write outside of memory.
-    ages[32] = 56;
+    //ages[32] = 56;
 
 
-    cin >> name;
-    cout << name;
+    //cin >> name;
+    //cout << name;
 
 
-    if (b) cout << "true\n";
-    cout << alex::i << endl;   
-    cout << "Hello Data!\n";
+    //if (b) cout << "true\n";
+    //cout << alex::i << endl;   
+    //cout << "Hello Data!\n";
 
 }
 
